@@ -1,0 +1,14 @@
+[Unit]
+Description=GitHub EC2 CI/CD Flask Application
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/opt/github-ec2-cicd/app
+Environment="PATH=/opt/github-ec2-cicd/app/venv/bin"
+ExecStart=/opt/github-ec2-cicd/app/venv/bin/gunicorn -w 2 -b 0.0.0.0:5000 app:app
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
