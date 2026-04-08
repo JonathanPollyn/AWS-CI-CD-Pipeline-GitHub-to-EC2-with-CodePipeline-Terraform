@@ -1,3 +1,8 @@
+############################################################
+# provider.tf
+# Configures the AWS provider and default tags
+############################################################
+
 provider "aws" {
   region = var.region
 
